@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+Copyright (c) 2017, The MITRE Corporation. All rights reserved.
+See LICENSE.txt for complete terms.
+-->
+<STIX_Package id="isa:guide.19001.STIXPackage-00000000-0000-4000-913d-e9069b8c07c9" timestamp="2015-01-29T16:38:36.200Z" version="1.1.1" xmlns="http://stix.mitre.org/stix-1"  xmlns:ns666="http://www.us-cert.gov/essa/Markings/ISAMarkings" xmlns:ns100="http://cybox.mitre.org/objects#PDFFileObject-1" xmlns:ns101="http://cybox.mitre.org/objects#WinFilemappingObject-1" xmlns:ns102="http://cybox.mitre.org/objects#WinKernelObject-2" xmlns:ns103="http://stix.mitre.org/Indicator-2" xmlns:ns109="http://stix.mitre.org/Campaign-1" xmlns:ns42="http://cybox.mitre.org/objects#VolumeObject-2" xmlns:ns108="http://stix.mitre.org/ThreatActor-1" xmlns:ns41="http://cybox.mitre.org/objects#WinPrefetchObject-2" xmlns:ns40="http://cybox.mitre.org/objects#WinNetworkShareObject-2" xmlns:ns105="http://stix.mitre.org/ExploitTarget-1" xmlns:ns46="http://cybox.mitre.org/objects#ARPCacheObject-1" xmlns:ns104="http://stix.mitre.org/TTP-1" xmlns:ns45="http://cybox.mitre.org/objects#UnixVolumeObject-2" xmlns:ns107="http://stix.mitre.org/Incident-1" xmlns:ns44="http://cybox.mitre.org/objects#DeviceObject-2" xmlns:ns106="http://stix.mitre.org/CourseOfAction-1" xmlns:ns43="http://cybox.mitre.org/objects#WinVolumeObject-2" xmlns:ns49="http://cybox.mitre.org/objects#CodeObject-2" xmlns:ns48="http://cybox.mitre.org/objects#WinKernelHookObject-2" xmlns:ns47="http://cybox.mitre.org/objects#WinMailslotObject-2" xmlns:ns113="http://stix.mitre.org/extensions/TestMechanism#OpenIOC2010-1" xmlns:ns114="http://stix.mitre.org/extensions/TestMechanism#Generic-1" xmlns:ns111="http://schemas.mandiant.com/2010/ioc" xmlns:ns112="http://schemas.mandiant.com/2010/ioc/TR/" xmlns:ns110="http://stix.mitre.org/extensions/TestMechanism#YARA-1" xmlns:ns60="http://cybox.mitre.org/objects#UnixUserAccountObject-2" xmlns:ns51="urn:oasis:names:tc:ciq:ct:3" xmlns:ns50="urn:oasis:names:tc:ciq:xal:3" xmlns:ns53="http://cybox.mitre.org/extensions/Address#CIQAddress3.0-1" xmlns:ns119="http://stix.mitre.org/extensions/TestMechanism#Snort-1" xmlns:ns52="http://www.w3.org/1999/xlink" xmlns:ns118="http://oval.mitre.org/XMLSchema/oval-variables-5" xmlns:ns55="http://cybox.mitre.org/objects#NetworkConnectionObject-2" xmlns:ns117="http://www.w3.org/2000/09/xmldsig#" xmlns:ns54="urn:oasis:names:tc:ciq:xpil:3" xmlns:ns116="http://oval.mitre.org/XMLSchema/oval-definitions-5" xmlns:ns57="http://cybox.mitre.org/objects#ProductObject-2" xmlns:ns115="http://oval.mitre.org/XMLSchema/oval-common-5" xmlns:ns56="http://cybox.mitre.org/objects#HTTPSessionObject-2" xmlns:ns59="http://cybox.mitre.org/objects#UserAccountObject-2" xmlns:ns58="http://cybox.mitre.org/objects#AccountObject-2" xmlns:ns70="http://cybox.mitre.org/objects#WinMemoryPageRegionObject-2" xmlns:ns71="http://cybox.mitre.org/objects#WinEventObject-2" xmlns:ns120="http://data-marking.mitre.org/extensions/MarkingStructure#Simple-1" xmlns:ns121="http://data-marking.mitre.org/extensions/MarkingStructure#Terms_Of_Use-1" xmlns:ns68="http://cybox.mitre.org/objects#WinSystemRestoreObject-2" xmlns:ns67="http://cybox.mitre.org/objects#LibraryObject-2" xmlns:ns66="http://cybox.mitre.org/objects#WinHookObject-1" xmlns:ns65="http://cybox.mitre.org/objects#ArtifactObject-2" xmlns:ns64="http://cybox.mitre.org/objects#DNSCacheObject-2" xmlns:ns63="http://cybox.mitre.org/objects#WhoisObject-2" xmlns:ns62="http://cybox.mitre.org/objects#WinComputerAccountObject-2" xmlns:ns61="http://cybox.mitre.org/objects#WinUserAccountObject-2" xmlns:ns69="http://cybox.mitre.org/objects#MemoryObject-2" xmlns:ns80="http://cybox.mitre.org/objects#EmailMessageObject-2" xmlns:ns81="http://cybox.mitre.org/objects#DomainNameObject-1" xmlns:ns82="http://cybox.mitre.org/objects#CustomObject-1" xmlns:ns77="http://cybox.mitre.org/objects#WinSystemObject-2" xmlns:ns76="http://cybox.mitre.org/objects#WinServiceObject-2" xmlns:ns79="http://cybox.mitre.org/objects#WinTaskObject-2" xmlns:ns78="http://cybox.mitre.org/objects#URLHistoryObject-1" xmlns:ns73="http://cybox.mitre.org/objects#ProcessObject-2" xmlns:ns72="http://cybox.mitre.org/objects#UserSessionObject-2" xmlns:ns75="http://cybox.mitre.org/objects#WinProcessObject-2" xmlns:ns74="http://cybox.mitre.org/objects#UnixProcessObject-2" xmlns:ns93="http://cybox.mitre.org/objects#GUIWindowObject-2" xmlns:ns92="http://cybox.mitre.org/objects#GUIDialogboxObject-2" xmlns:ns91="http://cybox.mitre.org/objects#GUIObject-2" xmlns:ns90="http://cybox.mitre.org/objects#APIObject-2" xmlns:ns85="http://cybox.mitre.org/objects#WinRegistryKeyObject-2" xmlns:ns86="http://cybox.mitre.org/objects#WinCriticalSectionObject-2" xmlns:ns83="http://cybox.mitre.org/objects#DiskObject-2" xmlns:ns84="http://cybox.mitre.org/objects#WinWaitableTimerObject-2" xmlns:ns89="http://cybox.mitre.org/objects#UnixPipeObject-2" xmlns:ns87="http://cybox.mitre.org/objects#PipeObject-2" xmlns:ns88="http://cybox.mitre.org/objects#WinPipeObject-2" xmlns:ns16="http://cybox.mitre.org/objects#SemaphoreObject-2" xmlns:ns17="http://cybox.mitre.org/objects#WinSemaphoreObject-2" xmlns:ns14="http://cybox.mitre.org/objects#WinEventLogObject-2" xmlns:ns15="http://cybox.mitre.org/objects#WinHandleObject-2" xmlns:ns18="http://cybox.mitre.org/objects#DiskPartitionObject-2" xmlns:ns19="http://cybox.mitre.org/objects#MutexObject-2" xmlns:ns12="http://cybox.mitre.org/objects#ASObject-1" xmlns:ns13="http://cybox.mitre.org/objects#AddressObject-2" xmlns:ns10="http://cybox.mitre.org/objects#SystemObject-2" xmlns:ns11="http://cpe.mitre.org/language/2.0" xmlns:ns94="http://cybox.mitre.org/objects#FileObject-2" xmlns:ns95="http://cybox.mitre.org/objects#ImageFileObject-1" xmlns:ns96="http://cybox.mitre.org/objects#ArchiveFileObject-1" xmlns:ns97="http://cybox.mitre.org/objects#UnixFileObject-2" xmlns:ns98="http://cybox.mitre.org/objects#WinExecutableFileObject-2" xmlns:ns99="http://cybox.mitre.org/objects#WinDriverObject-3" xmlns:ns29="http://cybox.mitre.org/objects#PortObject-2" xmlns:ns25="http://cybox.mitre.org/objects#LinkObject-1" xmlns:ns26="http://cybox.mitre.org/objects#WinThreadObject-2" xmlns:ns27="http://cybox.mitre.org/objects#SocketAddressObject-1" xmlns:ns28="http://cybox.mitre.org/objects#HostnameObject-1" xmlns:ns21="http://cybox.mitre.org/objects#LinuxPackageObject-2" xmlns:ns22="http://cybox.mitre.org/objects#DNSQueryObject-2" xmlns:ns23="http://cybox.mitre.org/objects#URIObject-2" xmlns:ns24="http://cybox.mitre.org/objects#DNSRecordObject-2" xmlns:ns20="http://cybox.mitre.org/objects#WinMutexObject-2" xmlns:isa="http://isa.org" xmlns:ns38="http://cybox.mitre.org/objects#NetworkRouteObject-2" xmlns:ns39="http://cybox.mitre.org/objects#X509CertificateObject-2" xmlns:ns36="http://cybox.mitre.org/objects#PacketObject-2" xmlns:ns37="http://cybox.mitre.org/objects#NetworkSocketObject-2" xmlns:ns34="http://cybox.mitre.org/objects#UnixNetworkRouteEntryObject-2" xmlns:ns9="http://cybox.mitre.org/objects#WinFileObject-2" xmlns:ns35="http://cybox.mitre.org/objects#NetworkFlowObject-2" xmlns:ns32="http://cybox.mitre.org/objects#NetworkRouteEntryObject-2" xmlns:ns33="http://cybox.mitre.org/objects#WinNetworkRouteEntryObject-2" xmlns:ns30="http://cybox.mitre.org/objects#SMSMessageObject-1" xmlns:ns5="http://cybox.mitre.org/cybox-2" xmlns:ns31="http://cybox.mitre.org/objects#NetworkSubnetObject-2" xmlns:ns6="urn:edm:edh:v2" xmlns:ns7="http://www.us-cert.gov/essa/Markings/ISAMarkingAssertions" xmlns:ns8="http://stix.mitre.org/extensions/ntoc_report_ext-1" xmlns:ns2="http://stix.mitre.org/common-1" xmlns:ns4="http://cybox.mitre.org/common-2" xmlns:ns3="http://data-marking.mitre.org/Marking-1">
+    <STIX_Header>
+        <Title>SMTP Threat Indicators</Title>
+        <Package_Intent xsi:type="ns124:PackageIntentVocab-1.0" xmlns:ns124="http://stix.mitre.org/default_vocabularies-1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">Indicators</Package_Intent>
+        <Description>This package contains SMTP Threat Indicators</Description>
+        <Handling>
+            <ns3:Marking>
+                <ns3:Controlled_Structure>//*[local-name()='STIX_Package'][@id='isa:guide.19001.STIXPackage-00000000-0000-4000-913d-e9069b8c07c9']/@id</ns3:Controlled_Structure>
+                <ns3:Marking_Structure idref="isa:MarkingStructure-U//FOUO-046667b7-cd65-4566-806b-24e9200b9704"/>
+            </ns3:Marking>
+            <ns3:Marking id="isa:Default_Marking-026d1f42-2f47-4766-807e-1fae3b8ce4c4">
+                <ns3:Controlled_Structure>/descendant-or-self::node()</ns3:Controlled_Structure>
+                <ns3:Marking_Structure isam_version="1.0" xsi:type="ns7:ISAMarkingsAssertionType" default_marking="true" id="isa:MarkingStructure-U//FOUO-046667b7-cd65-4566-806b-24e9200b9704" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:PolicyRef>urn:isa:policy:acs:ns:2.0?privDefault=deny</ns6:PolicyRef>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>NETDEF</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TENOT</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:ControlSet>CLS:U CUI:FOUO SENSGRP:TEST_COI.NSA.NSA ORG:USA.NSA ORG:USA.OTHER</ns6:ControlSet>
+                </ns3:Marking_Structure>
+            </ns3:Marking>
+            <ns3:Marking>
+                <ns3:Marking_Structure xsi:type="ns666:ISAMarkingsType" isam_version="1.0" id="isa:guide.19001.EDH2-13964a68-ed76-444b-b2b1-a2366bfe6321" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:CreateDateTime>2015-01-29T16:38:36.219Z</ns6:CreateDateTime>
+                    <ns6:ResponsibleEntity>CUST:USA.NSA</ns6:ResponsibleEntity>
+                </ns3:Marking_Structure>
+                <ns3:Marking_Structure xsi:type="ns7:ISAMarkingsAssertionType" most_restrictive="true" isam_version="1.0" id="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-146662d6-bd18-4116-a9e2-b6bc137cce04" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:PolicyRef>urn:isa:policy:acs:ns:2.0?privDefault=deny</ns6:PolicyRef>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>NETDEF</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TENOT</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TEARLINE</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:ControlSet>CLS:TS SCI:SI SENSGRP:TEST_COI.NSA.NSA CTRY:AUS CTRY:CAN CTRY:GBR CTRY:NZL CTRY:USA ORG:USA.NSA ORG:USA.OTHER</ns6:ControlSet>
+                    <ns6:DerivativeClassification>
+                        <ns6:classifiedBy>Available_On_Request</ns6:classifiedBy>
+                        <ns6:derivedFrom>NSACSSM_1-52</ns6:derivedFrom>
+                    </ns6:DerivativeClassification>
+                    <ns6:Declassification>
+                        <ns6:declassDate>2040-12-31Z</ns6:declassDate>
+                    </ns6:Declassification>
+                </ns3:Marking_Structure>
+                <ns3:Marking_Structure isam_version="1.0" xsi:type="ns7:ISAMarkingsAssertionType" id="isa:MarkingStructure-U//FOUO-20fa3e07-4aac-44a0-9568-0327a6342400" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:PolicyRef>urn:isa:policy:acs:ns:2.0?privDefault=deny</ns6:PolicyRef>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>NETDEF</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TENOT</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TEARLINE</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:ControlSet>CLS:U CUI:FOUO SENSGRP:TEST_COI.NSA.NSA ORG:USA.NSA ORG:USA.OTHER</ns6:ControlSet>
+                </ns3:Marking_Structure>
+                <ns3:Marking_Structure xsi:type="ns7:ISAMarkingsAssertionType" isam_version="1.0" id="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:PolicyRef>urn:isa:policy:acs:ns:2.0?privDefault=deny</ns6:PolicyRef>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>NETDEF</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TENOT</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:ControlSet>CLS:TS SCI:SI SENSGRP:TEST_COI.NSA.NSA CTRY:AUS CTRY:CAN CTRY:GBR CTRY:NZL CTRY:USA ORG:USA.NSA ORG:USA.OTHER</ns6:ControlSet>
+                    <ns6:Declassification>
+                        <ns6:declassDate>2040-12-31Z</ns6:declassDate>
+                    </ns6:Declassification>
+                </ns3:Marking_Structure>
+                <ns3:Marking_Structure xsi:type="ns7:ISAMarkingsAssertionType" isam_version="1.0" id="isa:MarkingStructure-S//REL TO USA, AUS, CAN, GBR, NZL-87d3c30c-7af3-4092-bc0d-5045d0e821c4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                    <ns6:PolicyRef>urn:isa:policy:acs:ns:2.0?privDefault=deny</ns6:PolicyRef>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>NETDEF</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:AccessPrivilege>
+                        <ns6:privilegeAction>TENOT</ns6:privilegeAction>
+                        <ns6:privilegeScope>ALL</ns6:privilegeScope>
+                        <ns6:ruleEffect>permit</ns6:ruleEffect>
+                    </ns6:AccessPrivilege>
+                    <ns6:ControlSet>CLS:S SENSGRP:TEST_COI.NSA.NSA CTRY:AUS CTRY:CAN CTRY:GBR CTRY:NZL CTRY:USA ORG:USA.NSA ORG:USA.OTHER</ns6:ControlSet>
+                    <ns6:Declassification>
+                        <ns6:declassDate>2040-12-31Z</ns6:declassDate>
+                    </ns6:Declassification>
+                </ns3:Marking_Structure>
+            </ns3:Marking>
+        </Handling>
+    </STIX_Header>
+    <Indicators>
+        <Indicator xsi:type="ns103:IndicatorType" id="isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc" timestamp="2014-07-21T13:23:15.012Z" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <ns103:Title>An Indicator with related Observables and COAs</ns103:Title>
+            <ns103:Type xsi:type="ns124:IndicatorTypeVocab-1.0" xmlns:ns124="http://stix.mitre.org/default_vocabularies-1"/>
+            <ns103:Alternative_ID>12345678</ns103:Alternative_ID>
+            <ns103:Description>ThreatActivityCategory: Undetermined</ns103:Description>
+            <ns103:Valid_Time_Position>
+                <ns103:Start_Time>2014-07-16T00:00:00.000Z</ns103:Start_Time>
+            </ns103:Valid_Time_Position>
+            <ns103:Observable>
+                <ns5:Observable_Composition operator="OR">
+                    <ns5:Observable id="isa:guide.19001.Observable-ClearText-Header-3aff88b2-88b4-4694-a6a3-a0327ec226bc">
+                        <ns5:Object>
+                            <ns5:Properties xsi:type="ns80:EmailMessageObjectType">
+                                <ns80:Raw_Header condition="Contains">nobody.who@gmail.com</ns80:Raw_Header>
+                            </ns5:Properties>
+                        </ns5:Object>
+                    </ns5:Observable>
+                    <ns5:Observable id="isa:guide.19001.Observable-ClearText-Body-3aff88b2-88b4-4694-a6a3-a0327ec226bc">
+                        <ns5:Object>
+                            <ns5:Properties xsi:type="ns80:EmailMessageObjectType">
+                                <ns80:Raw_Body condition="Contains">nobody.who@gmail.com</ns80:Raw_Body>
+                            </ns5:Properties>
+                        </ns5:Object>
+                    </ns5:Observable>
+                    <ns5:Observable id="isa:guide.19001.Observable-Regex-Header-3aff88b2-88b4-4694-a6a3-a0327ec226bc">
+                        <ns5:Object>
+                            <ns5:Properties xsi:type="ns80:EmailMessageObjectType">
+                                <ns80:Raw_Header condition="FitsPattern">\.*?nobody\.who@gmail\.com</ns80:Raw_Header>
+                            </ns5:Properties>
+                        </ns5:Object>
+                    </ns5:Observable>
+                    <ns5:Observable id="isa:guide.19001.Observable-Regex-Body-3aff88b2-88b4-4694-a6a3-a0327ec226bc">
+                        <ns5:Object>
+                            <ns5:Properties xsi:type="ns80:EmailMessageObjectType">
+                                <ns80:Raw_Body condition="FitsPattern">\.*?nobody\.who@gmail\.com</ns80:Raw_Body>
+                            </ns5:Properties>
+                        </ns5:Object>
+                    </ns5:Observable>
+                </ns5:Observable_Composition>
+            </ns103:Observable>
+            <ns103:Test_Mechanisms>
+                <ns103:Test_Mechanism xsi:type="ns119:SnortTestMechanismType" id="isa:guide.19001.TestMechanism-3aff88b2-88b4-4694-a6a3-a0327ec226bc">
+                    <ns119:Product_Name>SNORT</ns119:Product_Name>
+                    <ns119:Version>2.9</ns119:Version>
+                    <ns119:Rule>alert tcp any any &lt;&gt; any 25 (msg:"EMAIL_nobody.who@gmail.com"; content:"nobody.who@gmail.com";sid: 12345678; rev: 1;)</ns119:Rule>
+                </ns103:Test_Mechanism>
+            </ns103:Test_Mechanisms>
+            <ns103:Suggested_COAs>
+                <ns103:Suggested_COA>
+                    <ns2:Course_Of_Action xsi:type="ns106:CourseOfActionType" id="isa:guide.19001.COA-3aff88b2-88b4-4694-a6a3-a0327ec226bc" timestamp="2014-07-21T13:23:15.012Z">
+                        <ns106:Title>This is a COA for a Malicious Email</ns106:Title>
+                        <ns106:Type xsi:type="ns124:CourseOfActionTypeVocab-1.0" xmlns:ns124="http://stix.mitre.org/default_vocabularies-1">Perimeter Blocking</ns106:Type>
+                        <ns106:Description>Identify the malicious email using a search for the Observables or Signature (Regex, or Clear Text), then quarantine the email.</ns106:Description>
+                    </ns2:Course_Of_Action>
+                </ns103:Suggested_COA>
+            </ns103:Suggested_COAs>
+            <ns103:Handling>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Indicator'][@id='isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Alternative_ID' and namespace-uri()='http://stix.mitre.org/Indicator-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-U//FOUO-20fa3e07-4aac-44a0-9568-0327a6342400"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Indicator'][@id='isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Title' and namespace-uri()='http://stix.mitre.org/Indicator-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-U//FOUO-046667b7-cd65-4566-806b-24e9200b9704"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Indicator'][@id='isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Description' and namespace-uri()='http://stix.mitre.org/Indicator-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-S//REL TO USA, AUS, CAN, GBR, NZL-87d3c30c-7af3-4092-bc0d-5045d0e821c4"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Indicator'][@id='isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Valid_Time_Position' and namespace-uri()='http://stix.mitre.org/Indicator-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-U//FOUO-046667b7-cd65-4566-806b-24e9200b9704"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Indicator'][@id='isa:guide.19001.Indicator-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Related_Campaigns']/*[local-name()='Related_Campaign']/*[local-name()='Names']/*[local-name()='Name' and namespace-uri()='http://stix.mitre.org/common-1']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-S//REL TO USA, AUS, CAN, GBR, NZL-87d3c30c-7af3-4092-bc0d-5045d0e821c4"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Observable' and 'http://cybox.mitre.org/cybox-2'][@id='isa:guide.19001.Observable-ClearText-Header-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Object']/*[local-name()='Properties']/*[local-name()='Raw_Header' and namespace-uri()='http://cybox.mitre.org/objects#EmailMessageObject-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Observable' and 'http://cybox.mitre.org/cybox-2'][@id='isa:guide.19001.Observable-ClearText-Body-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Object']/*[local-name()='Properties']/*[local-name()='Raw_Body' and namespace-uri()='http://cybox.mitre.org/objects#EmailMessageObject-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Observable' and 'http://cybox.mitre.org/cybox-2'][@id='isa:guide.19001.Observable-Regex-Header-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Object']/*[local-name()='Properties']/*[local-name()='Raw_Header' and namespace-uri()='http://cybox.mitre.org/objects#EmailMessageObject-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Observable' and 'http://cybox.mitre.org/cybox-2'][@id='isa:guide.19001.Observable-Regex-Body-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Object']/*[local-name()='Properties']/*[local-name()='Raw_Body' and namespace-uri()='http://cybox.mitre.org/objects#EmailMessageObject-2']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Test_Mechanism' and namespace-uri()='http://stix.mitre.org/Indicator-2'][@id='isa:guide.19001.TestMechanism-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Rule' and namespace-uri()='http://stix.mitre.org/extensions/TestMechanism#Snort-1']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Suggested_COAs']/*[local-name()='Suggested_COA']/*[local-name()='Course_Of_Action' and 'http://stix.mitre.org/common-1'][@id='isa:guide.19001.COA-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Title' and namespace-uri()='http://stix.mitre.org/CourseOfAction-1']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-U//FOUO-046667b7-cd65-4566-806b-24e9200b9704"/>
+                </ns3:Marking>
+                <ns3:Marking>
+                    <ns3:Controlled_Structure>//*[local-name()='Suggested_COAs']/*[local-name()='Suggested_COA']/*[local-name()='Course_Of_Action' and 'http://stix.mitre.org/common-1'][@id='isa:guide.19001.COA-3aff88b2-88b4-4694-a6a3-a0327ec226bc']/*[local-name()='Description' and namespace-uri()='http://stix.mitre.org/CourseOfAction-1']/descendant-or-self::node()</ns3:Controlled_Structure>
+                    <ns3:Marking_Structure idref="isa:MarkingStructure-TS//SI//REL TO USA, AUS, CAN, GBR, NZL-0ca8ca11-d263-4bf6-a572-7c3a72896a31"/>
+                </ns3:Marking>
+            </ns103:Handling>
+            <ns103:Related_Campaigns>
+                <ns103:Related_Campaign>
+                    <ns2:Names>
+                        <ns2:Name xsi:type="ns124:IndicatorTypeVocab-1.0" xmlns:ns124="http://stix.mitre.org/default_vocabularies-1">Campaign One</ns2:Name>
+                    </ns2:Names>
+                </ns103:Related_Campaign>
+            </ns103:Related_Campaigns>
+        </Indicator>
+    </Indicators>
+</STIX_Package>
+

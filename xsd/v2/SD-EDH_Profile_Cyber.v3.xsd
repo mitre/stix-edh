@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Smart Data EDH Cyber Profile XSD-->
+<!--Version: 3.0.0-->
+<!--Date: 2016-01-12-->
+<!--Update of Cyber Profile XSD to align with ACS v3.0-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:edh2="urn:edm:edh:cyber:v3" targetNamespace="urn:edm:edh:cyber:v3" 
+elementFormDefault="qualified" attributeFormDefault="unqualified" version="3" xml:lang="en">
+    <!--Core DES-level Elements and Corresponding Complex Types, Independent of Profile-->
+    <xsd:element name="Identifier" type="xsd:QName"/>
+    <xsd:element name="CreateDateTime" type="xsd:dateTime"/>
+    <xsd:element name="ResponsibleEntity" type="xsd:NMTOKENS"/>
+    <xsd:element name="AuthRef" type="AuthRefType"/>
+    <xsd:element name="PolicyRef" type="PolicyRefType"/>
+    <xsd:element name="Policy" type="PolicyType"/>
+    <xsd:complexType name="PolicyType">
+        <xsd:sequence maxOccurs="unbounded">
+            <xsd:element ref="PolicyRule"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="PolicyRule" type="PolicyRuleType" abstract="true"/>
+    <xsd:complexType name="PolicyRuleType"/>
+    <xsd:element name="ControlSet" type="ControlSetType"/>
+    <!--Core DES-level Element Groups-->
+    <xsd:group name="ResourceAccountingGroup">
+        <xsd:sequence>
+            <xsd:element ref="Identifier" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="CreateDateTime" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ResponsibleEntity" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="AuthRef" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:group>
+    <xsd:group name="ControlPolicyGroup">
+        <xsd:sequence>
+            <xsd:element ref="AuthRef" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="PolicyRef" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="Policy" minOccurs="0" maxOccurs="1"/>
+            <xsd:element ref="ControlSet" minOccurs="1" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:group>
+    <!--Profile-level Elements and Corresponding Complex Type-->
+    <xsd:element name="OriginalClassification" type="OriginalClassificationType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="OriginalClassificationType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="classifiedBy" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="classifiedOn" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="classificationReason" type="xsd:NMTOKENS" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="compilationReason" type="xsd:NMTOKENS" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="DerivativeClassification" type="DerivativeClassificationType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="DerivativeClassificationType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="classifiedBy" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="classifiedOn" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="derivedFrom" type="xsd:NMTOKENS" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="Declassification" type="DeclassificationType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="DeclassificationType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="declassExemption" type="xsd:NMTOKEN" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="declassPeriod" type="xsd:integer" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="declassDate" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+                    <xsd:element name="declassEvent" type="xsd:NMTOKEN" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="PublicRelease" type="PublicReleaseType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="PublicReleaseType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="releasedBy" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="releasedOn" type="xsd:date" minOccurs="0" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="ResourceDisposition" type="ResourceDispositionType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="ResourceDispositionType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="dispositionDate" type="xsd:date" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="dispositionProcess" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="AccessPrivilege" type="AccessPrivilegeType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="AccessPrivilegeType">
+        <xsd:complexContent>
+            <xsd:extension base="PolicyRuleType">
+                <xsd:sequence>
+                    <xsd:element name="privilegeAction" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+                    <xsd:element name="privilegeScope" type="xsd:NMTOKENS" minOccurs="1" maxOccurs="unbounded"/>
+                    <xsd:element name="ruleEffect" type="RuleEffectEnum" minOccurs="1" maxOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="FurtherSharing" type="FurtherSharingType" substitutionGroup="PolicyRule"/>
+    <xsd:complexType name="FurtherSharingType">
+     <xsd:complexContent>
+       <xsd:extension base="PolicyRuleType">
+          <xsd:sequence>
+           <xsd:element name="sharingScope" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+           <xsd:element name="ruleEffect" type="RuleEffectEnum" minOccurs="1" maxOccurs="1"/>
+          </xsd:sequence>
+        </xsd:extension>
+     </xsd:complexContent>
+   </xsd:complexType>
+    <!--Simple Types-->
+    <xsd:simpleType name="AuthRefType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="PolicyRefType">
+        <xsd:restriction base="xsd:string"/>
+    </xsd:simpleType>
+    <xsd:simpleType name="RuleEffectEnum">
+        <xsd:restriction base="xsd:NMTOKEN">
+            <xsd:enumeration value="permit"/>
+            <xsd:enumeration value="deny"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="ControlSetType">
+        <xsd:restriction base="xsd:NMTOKENS"/>
+    </xsd:simpleType>
+</xsd:schema>
