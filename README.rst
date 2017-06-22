@@ -1,6 +1,9 @@
 stix-edh
 ========
 
+.. image:: https://travis-ci.org/mitre/stix-edh.svg?branch=master
+    :target: https://travis-ci.org/mitre/stix-edh
+
 An extension to python-stix supporting STIX Data Markings for the `Enhance
 Shared Situational Awareness (ESSA) <https://www.us-cert.gov/essa>`_
 Initiative's Information Sharing Architecture (ISA) Access Control Specification
