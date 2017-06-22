@@ -10,29 +10,28 @@ Initiative's Information Sharing Architecture (ISA) Access Control Specification
 About the version numbers
 -------------------------
 
-There are two versions of the ISA Marking extensions for STIX. Both are included
-in separate subpackages within ``stix_edh``.
-
-1. **Version 1.0** (``stix_edh.v1``), published February 26, 2015:
-
-   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsType.xsd
-   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsAssertionsType.xsd
-   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/SD-EDH_Profile_Cyber.xsd
-
-   Note that this uses version **2.0** of the Smart Data EDH Cyber Profile, and
-   corresponds to ACS Version 2.0.
-
-2. **Version 2.0** (``stix_edh.v2``), published January 19, 2016:
+stix-edh supports **version 2.0** of the ISA Marking extensions for STIX,
+published January 19, 2016:
 
    - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsType.v2.xsd
    - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsAssertionsType.v2.xsd
    - https://www.us-cert.gov/sites/default/files/STIX_Namespace/SD-EDH_Profile_Cyber.v3.xsd
 
-   Note that this uses version **3.0** of the Smart Data EDH Cyber Profile, and
-   corresponds to ACS Version 3.0.
+These schemas use version **3.0** of the Smart Data EDH Cyber Profile, and
+correspond to ACS Version 3.0.
 
-The ``stix-edh`` library itself uses `semantic versioning <http://semver.org/>`_,
-and the version numbers are unrelated to the versions of EDH, ACS, or ISA.
+**NOTE:** stix-edh does **not** currently support version 1.0 of the ISA Marking
+extensions (published February 26, 2015), which use the schemas below. Version
+1.0 of the ISA Marking extensions use version **2.0** of the Smart Data EDH
+Cyber Profile, and corresponds to ACS Version 2.0.
+
+   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsType.xsd
+   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsAssertionsType.xsd
+   - https://www.us-cert.gov/sites/default/files/STIX_Namespace/SD-EDH_Profile_Cyber.xsd
+
+The ``stix-edh`` library itself uses `semantic versioning
+<http://semver.org/>`_, and the version numbers are unrelated to the versions of
+EDH, ACS, or ISA.
 
 Usage
 -----
@@ -49,20 +48,20 @@ To parse XML using with EDH data markings, just ``import stix_edh`` **after**
     from stix.core import STIXPackage
     package = STIXPackage.from_xml('stix.xml')
 
-
-To create data markings, create an instance of ``ISAMarkings`` or
-``ISAMarkingsAssertions`` from either the ``stix_edh.v1`` or ``stix_edh.v2``
-package, and add it to a   ``MarkingSpecification`` object as a
-``MarkingStructure``. See ``examples/create-isa.py`` in the source repository
-for more information.
+To create data markings, create an instance of ``stix_edh.ISAMarkings`` or
+``stix_edh.ISAMarkingsAssertions``, and add it to a ``MarkingSpecification``
+object as a ``MarkingStructure``. See ``examples/create-isa.py`` in the source
+repository for more information.
 
 Requirements
 ------------
 
 * Python 2.6, 2.7, or 3.3+
 * python-stix
+
   * for STIX 1.1.1:  >= 1.1.1.8 and < 1.2.0.0
   * for STIX 1.2:  >= 1.2.0.3
+
 * mixbox > 1.0.1
 
 

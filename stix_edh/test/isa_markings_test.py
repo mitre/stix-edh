@@ -3,7 +3,7 @@
 
 import unittest
 from stix.test import EntityTestCase
-from stix_edh.v2.isa_markings import ISAMarkings
+from stix_edh.isa_markings import ISAMarkings
 
 
 class ISAMarkingsTests(EntityTestCase, unittest.TestCase):

@@ -8,7 +8,7 @@ import stix.data_marking as dm
 from mixbox import fields
 
 # relative
-from stix_edh.v2.bindings import isa_markings_assertions
+from stix_edh.bindings import isa_markings_assertions
 
 
 @stix.register_extension
@@ -23,15 +23,15 @@ class ISAMarkingsAssertion(dm.MarkingStructure):
     default_marking = fields.BooleanField("default_marking")
     policy_ref = fields.TypedField("PolicyRef", key_name="policy_ref")
     auth_ref = fields.TypedField("AuthRef", key_name="auth_ref")
-    access_privilege = fields.TypedField("AccessPrivilege", type_="stix_edh.v2.cyber_profile.AccessPrivilege", multiple=True, key_name="access_privilege")
-    further_sharing = fields.TypedField("FurtherSharing", type_="stix_edh.v2.cyber_profile.FurtherSharing", multiple=True, key_name="further_sharing")
-    resource_disposition = fields.TypedField("ResourceDisposition", type_="stix_edh.v2.cyber_profile.ResourceDisposition", key_name="resource_disposition")
+    access_privilege = fields.TypedField("AccessPrivilege", type_="stix_edh.cyber_profile.AccessPrivilege", multiple=True, key_name="access_privilege")
+    further_sharing = fields.TypedField("FurtherSharing", type_="stix_edh.cyber_profile.FurtherSharing", multiple=True, key_name="further_sharing")
+    resource_disposition = fields.TypedField("ResourceDisposition", type_="stix_edh.cyber_profile.ResourceDisposition", key_name="resource_disposition")
     control_set = fields.TypedField("ControlSet", type_="stix_edh.common.NMTokens", key_name="control_set")
-    original_classification = fields.TypedField("OriginalClassification", type_="stix_edh.v2.cyber_profile.OriginalClassification", key_name="original_classification")
-    derivative_classification = fields.TypedField("DerivativeClassification", type_="stix_edh.v2.cyber_profile.DerivativeClassification", key_name="derivative_classification")
-    declassification = fields.TypedField("Declassification", type_="stix_edh.v2.cyber_profile.Declassification", key_name="declassification")
-    public_release = fields.TypedField("PublicRelease", type_="stix_edh.v2.cyber_profile.PublicRelease", key_name="public_release")
-    addl_reference = fields.TypedField("AddlReference", type_="stix_edh.v2.isa_markings_assertions.AddlReference", key_name="addl_reference")
+    original_classification = fields.TypedField("OriginalClassification", type_="stix_edh.cyber_profile.OriginalClassification", key_name="original_classification")
+    derivative_classification = fields.TypedField("DerivativeClassification", type_="stix_edh.cyber_profile.DerivativeClassification", key_name="derivative_classification")
+    declassification = fields.TypedField("Declassification", type_="stix_edh.cyber_profile.Declassification", key_name="declassification")
+    public_release = fields.TypedField("PublicRelease", type_="stix_edh.cyber_profile.PublicRelease", key_name="public_release")
+    addl_reference = fields.TypedField("AddlReference", type_="stix_edh.isa_markings_assertions.AddlReference", key_name="addl_reference")
 
     def __init__(self):
         super(ISAMarkingsAssertion, self).__init__()

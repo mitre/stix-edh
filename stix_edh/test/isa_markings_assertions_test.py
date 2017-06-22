@@ -8,8 +8,8 @@ import unittest
 from stix.test import EntityTestCase
 
 # internal
-from stix_edh.test.v2 import cyber_profile_test
-from stix_edh.v2.isa_markings_assertions import ISAMarkingsAssertion, AddlReference
+from stix_edh.test import cyber_profile_test
+from stix_edh.isa_markings_assertions import ISAMarkingsAssertion, AddlReference
 
 
 class AddlReferenceTests(EntityTestCase, unittest.TestCase):

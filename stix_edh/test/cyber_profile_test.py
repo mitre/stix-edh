@@ -5,7 +5,7 @@ import unittest
 
 from stix.test import EntityTestCase
 
-from stix_edh.v2.cyber_profile import (
+from stix_edh.cyber_profile import (
     AccessPrivilege, Declassification, DerivativeClassification,
     OriginalClassification, PublicRelease, ResourceDisposition, FurtherSharing
 )

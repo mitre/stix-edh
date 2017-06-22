@@ -9,15 +9,15 @@ import stix.data_marking as dm
 from mixbox import fields
 
 # relative
-from stix_edh.v1.bindings import isa_markings
+from stix_edh.bindings import isa_markings
 
 
 @stix.register_extension
 class ISAMarkings(dm.MarkingStructure):
     _binding = isa_markings
     _binding_class = _binding.ISAMarkingsType
-    _namespace = 'http://www.us-cert.gov/essa/Markings/ISAMarkings'
-    _XSI_TYPE = 'isam-v1:ISAMarkingsType'
+    _namespace = 'http://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsType.v2.xsd'
+    _XSI_TYPE = 'isam-v2:ISAMarkingsType'
 
     isam_version = fields.TypedField("isam_version")
     identifier = fields.TypedField("Identifier", key_name="identifier")
@@ -27,4 +27,4 @@ class ISAMarkings(dm.MarkingStructure):
 
     def __init__(self):
         super(ISAMarkings, self).__init__()
-        self.isam_version = '1.0'
+        self.isam_version = '2.0'

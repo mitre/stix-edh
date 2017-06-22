@@ -7,11 +7,8 @@ def _register_stix_edh():
     import stix
 
     # Register the EDH data marking extensions
-    import stix_edh.v1.isa_markings
-    import stix_edh.v1.isa_markings_assertions
-
-    import stix_edh.v2.isa_markings
-    import stix_edh.v2.isa_markings_assertions
+    import stix_edh.isa_markings
+    import stix_edh.isa_markings_assertions
 
 
 def _update_namespaces():
@@ -20,9 +17,10 @@ def _update_namespaces():
     import stix_edh.namespaces as namespaces
     import mixbox.namespaces
 
-    for ns in namespaces.ALL_ISA_NAMESPACES:
+    for ns in namespaces.ISA_NAMESPACES:
         nsparser.STIX_NAMESPACES.add_namespace(ns)
         mixbox.namespaces.register_namespace(ns)
+
 
 from .version import __version__  # noqa
 

@@ -8,14 +8,13 @@
 # python-stix
 from stix.bindings import register_extension
 from stix.bindings import data_marking as dm
-
 from mixbox.binding_utils import *
 
 # internal
-from stix_edh.v1.bindings import cyber_profile
+from stix_edh.bindings import cyber_profile
 
 
-XML_NS = "http://www.us-cert.gov/essa/Markings/ISAMarkingAssertions"
+XML_NS = "http://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsAssertionsType.v2.xsd"
 
 
 @register_extension
@@ -29,23 +28,28 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
 
     """
     xmlns = XML_NS
-    xmlns_prefix   = "isam-assert-v1"
+    xmlns_prefix   = "isam-assert-v2"
     xml_type       = "ISAMarkingsAssertionType"
     xsi_type       = "%s:%s" % (xmlns_prefix, xml_type)
 
     subclass = None
     superclass = dm.MarkingStructureType
 
-    def __init__(self, idref=None, marking_model_ref=None, marking_model_name=None, id=None, most_restrictive=False, default_marking=False, isam_version=None, PolicyRef=None, AccessPrivilege=None, ResourceDisposition=None, ControlSet=None, OriginalClassification=None, DerivativeClassification=None, Declassification=None, PublicRelease=None, AddlReference=None):
+    def __init__(self, idref=None, marking_model_ref=None, marking_model_name=None, id=None, most_restrictive=False, default_marking=False, isam_version=None, PolicyRef=None, AuthRef=None, AccessPrivilege=None, FurtherSharing=None, ResourceDisposition=None, ControlSet=None, OriginalClassification=None, DerivativeClassification=None, Declassification=None, PublicRelease=None, AddlReference=None):
         super(ISAMarkingsAssertionType, self).__init__(idref, marking_model_ref, marking_model_name, id)
         self.most_restrictive = _cast(bool, most_restrictive)
         self.default_marking = _cast(bool, default_marking)
         self.isam_version = _cast(None, isam_version)
         self.PolicyRef = PolicyRef
+        self.AuthRef = AuthRef
         if AccessPrivilege is None:
             self.AccessPrivilege = []
         else:
             self.AccessPrivilege = AccessPrivilege
+        if FurtherSharing is None:
+            self.FurtherSharing = []
+        else:
+            self.FurtherSharing = FurtherSharing
         self.ResourceDisposition = ResourceDisposition
         self.ControlSet = ControlSet
         self.OriginalClassification = OriginalClassification
@@ -61,10 +65,16 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
     factory = staticmethod(factory)
     def get_PolicyRef(self): return self.PolicyRef
     def set_PolicyRef(self, PolicyRef): self.PolicyRef = PolicyRef
+    def get_AuthRef(self): return self.AuthRef
+    def set_AuthRef(self, AuthRef): self.AuthRef = AuthRef
     def get_AccessPrivilege(self): return self.AccessPrivilege
     def set_AccessPrivilege(self, AccessPrivilege): self.AccessPrivilege = AccessPrivilege
     def add_AccessPrivilege(self, value): self.AccessPrivilege.append(value)
     def insert_AccessPrivilege(self, index, value): self.AccessPrivilege[index] = value
+    def get_FurtherSharing(self): return self.FurtherSharing
+    def set_FurtherSharing(self, FurtherSharing): self.FurtherSharing = FurtherSharing
+    def add_FurtherSharing(self, value): self.FurtherSharing.append(value)
+    def insert_FurtherSharing(self, index, value): self.FurtherSharing[index] = value
     def get_ResourceDisposition(self): return self.ResourceDisposition
     def set_ResourceDisposition(self, ResourceDisposition): self.ResourceDisposition = ResourceDisposition
     def get_ControlSet(self): return self.ControlSet
@@ -88,7 +98,9 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
     def hasContent_(self):
         if (
             self.PolicyRef is not None or
+            self.AuthRef is not None or
             self.AccessPrivilege or
+            self.FurtherSharing or
             self.ResourceDisposition is not None or
             self.ControlSet is not None or
             self.OriginalClassification is not None or
@@ -137,12 +149,16 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
             eol_ = '\n'
         else:
             eol_ = ''
-
         if self.PolicyRef is not None:
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:PolicyRef>%s</%s:PolicyRef>%s' % (nsmap[cyber_profile.XML_NS], quote_xml(self.PolicyRef), nsmap[cyber_profile.XML_NS], eol_))
+        if self.AuthRef is not None:
+            showIndent(lwrite, level, pretty_print)
+            lwrite('<%s:AuthRef>%s</%s:AuthRef>%s' % (nsmap[cyber_profile.XML_NS], quote_xml(self.AuthRef), nsmap[cyber_profile.XML_NS], eol_))
         for AccessPrivilege_ in self.AccessPrivilege:
             AccessPrivilege_.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='AccessPrivilege', pretty_print=pretty_print)
+        for FurtherSharing_ in self.FurtherSharing:
+            FurtherSharing_.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='FurtherSharing', pretty_print=pretty_print)
         if self.ResourceDisposition is not None:
             self.ResourceDisposition.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='ResourceDisposition', pretty_print=pretty_print)
         if self.ControlSet is not None:
@@ -192,10 +208,16 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'PolicyRef':
             self.set_PolicyRef(child_.text)
+        elif nodeName_ == 'AuthRef':
+            self.set_AuthRef(child_.text)
         elif nodeName_ == 'AccessPrivilege':
             obj_ = cyber_profile.AccessPrivilegeType.factory()
             obj_.build(child_)
             self.AccessPrivilege.append(obj_)
+        elif nodeName_ == 'FurtherSharing':
+            obj_ = cyber_profile.FurtherSharingType.factory()
+            obj_.build(child_)
+            self.FurtherSharing.append(obj_)
         elif nodeName_ == 'ResourceDisposition':
             obj_ = cyber_profile.ResourceDispositionType.factory()
             obj_.build(child_)

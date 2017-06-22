@@ -7,7 +7,7 @@ import stix
 from mixbox import fields
 
 # internal bindings
-from stix_edh.v2.bindings import cyber_profile
+from stix_edh.bindings import cyber_profile
 
 
 class AccessPrivilege(stix.Entity):
