@@ -1,8 +1,7 @@
 stix-edh
 ========
 
-.. image:: https://travis-ci.org/mitre/stix-edh.svg?branch=master
-    :target: https://travis-ci.org/mitre/stix-edh
+|Build_Status| |Version|
 
 An extension to python-stix supporting STIX Data Markings for the `Enhance
 Shared Situational Awareness (ESSA) <https://www.us-cert.gov/essa>`_
@@ -75,3 +74,8 @@ This software was produced for the U. S. Government, and is subject to the
 Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007).
 
 Copyright (c) 2017, The MITRE Corporation. All Rights Reserved.
+
+.. |Build_Status| image:: https://travis-ci.org/mitre/stix-edh.svg?branch=master
+   :target: https://travis-ci.org/mitre/stix-edh
+.. |Version| image:: https://img.shields.io/pypi/v/stix-edh.svg?maxAge=3600
+   :target: https://pypi.python.org/pypi/stix-edh/
