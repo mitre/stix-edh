@@ -5,20 +5,29 @@
 import collections
 
 # external
-import stix.utils
+from mixbox import entities, fields
 from mixbox.vendor.six import text_type
+import stix.utils
 
 # internal
 from stix_edh import utils
+from stix_edh.bindings import edh_common
 
 
-class NMTokens(collections.MutableSequence):
+class NMTokens(collections.MutableSequence, entities.Entity):
     """Takes an xs:NMTOKENS string (a whitespace separated string of tokens)
     and converts it into a mutable sequence type.
 
     """
+    _binding = edh_common
+    _binding_class = _binding.NMTOKENS
+    _namespace = 'http://www.w3.org/2001/XMLSchema'
+
+    value = fields.TypedField("ValueOf_", key_name="value")
+
     def __init__(self, value=None):
-        self._inner = []
+        super(NMTokens, self).__init__()
+        self.value = []
 
         if not value:
             return
@@ -37,43 +46,25 @@ class NMTokens(collections.MutableSequence):
             error = "Input value cannot contain whitespace."
             raise ValueError(error)
 
-        return self._inner.insert(index, value)
+        return self.value.insert(index, value)
 
     def __delitem__(self, index):
-        return self._inner.__delitem__(index)
+        return self.value.__delitem__(index)
 
     def __setitem__(self, index, value):
-        return self._inner.__setitem__(index, value)
+        return self.value.__setitem__(index, value)
 
     def __getitem__(self, index):
-        return self._inner.__getitem__(index)
+        return self.value.__getitem__(index)
 
     def __len__(self):
-        return self._inner.__len__()
+        return self.value.__len__()
 
     def __unicode__(self):
-        return text_type(utils.nmtokens_serialize(self._inner))
+        return text_type(utils.nmtokens_serialize(self.value))
 
     def __str__(self):
         return text_type(self).encode("utf-8")
 
     def to_list(self):
         return [x for x in self]
-
-    def to_dict(self):
-        if len(self._inner) == 1:
-            return self._inner[0]
-        return [x for x in self]
-
-    @classmethod
-    def from_dict(cls, d):
-        return NMTokens(d)
-    
-    def to_obj(self, ns_info=None):
-        if len(self._inner) == 0:
-            return None
-        return utils.nmtokens_serialize(self._inner)
-    
-    @classmethod
-    def from_obj(cls, obj):
-        return NMTokens(utils.nmtokens_parse(obj))

@@ -15,7 +15,7 @@ class AccessPrivilegeTests(EntityTestCase, unittest.TestCase):
     klass = AccessPrivilege
 
     _full_dict = {
-        'privilege_action': ["privilege", "action"],
+        'privilege_action': "privilege",
         'privilege_scope': [
             [u"privilege", u"scope"]
         ],
@@ -27,7 +27,7 @@ class FurtherSharingTests(EntityTestCase, unittest.TestCase):
     klass = FurtherSharing
 
     _full_dict = {
-        'sharing_scope': ["privilege", "action"],
+        'sharing_scope': "privilege",
         'rule_effect': 'permit'
     }
 

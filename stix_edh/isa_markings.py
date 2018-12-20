@@ -1,14 +1,12 @@
 # Copyright (c) 2017, The MITRE Corporation. All rights reserved.
 # See LICENSE.txt for complete terms.
 
-# python-stix
+# external
+from mixbox import fields
 import stix
 import stix.data_marking as dm
 
-# mixbox
-from mixbox import fields
-
-# relative
+# internal
 from stix_edh.bindings import isa_markings
 
 

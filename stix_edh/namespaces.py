@@ -2,7 +2,7 @@
 # See LICENSE.txt for complete terms.
 
 from mixbox.namespaces import Namespace
-import itertools
+
 
 ISA_NAMESPACES = [
     # ISA v2/EDH v3

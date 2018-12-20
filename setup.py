@@ -20,8 +20,11 @@ def get_version():
 
         raise AttributeError("Package does not have a __version__")
 
-with open('README.rst') as f:
-    readme = f.read()
+
+def get_long_description():
+    with open('README.rst') as f:
+        return f.read()
+
 
 setup(
     name="stix-edh",
@@ -29,7 +32,7 @@ setup(
     author="The MITRE Corporation",
     author_email="stix@mitre.org",
     description="An EDH marking extension API for python-stix.",
-    long_description=readme,
+    long_description=get_long_description(),
     url="http://stix.mitre.org",
     packages=find_packages(),
     install_requires=['stix>=1.1.1.8,<1.2.1.0', 'mixbox>=1.0.1'],

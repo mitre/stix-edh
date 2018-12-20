@@ -3,6 +3,8 @@
 
 import unittest
 
+from mixbox.vendor.six import text_type
+
 from stix_edh.common import NMTokens
 
 
@@ -25,8 +27,8 @@ class NMTokensTests(unittest.TestCase):
 
     def test_string_split(self):
         nm = NMTokens(["This", "is", "a", "test"])
-        self.assertEquals("This is a test", nm.to_obj())
+        self.assertEquals("This is a test", str(nm))
 
     def test_unicode_split(self):
         nm = NMTokens([u"This", u"is", u"a", u"test"])
-        self.assertEquals(u"This is a test", nm.to_obj())
+        self.assertEquals(u"This is a test", text_type(nm))
