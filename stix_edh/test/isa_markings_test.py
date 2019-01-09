@@ -13,7 +13,7 @@ class ISAMarkingsTests(EntityTestCase, unittest.TestCase):
         'isam_version': '2.0',
         'identifier': 'example:foo',
         'create_date_time': '2015-03-06T14:35:23.375304+00:00',
-        'responsible_entity': ['foo', 'bar'],
+        'responsible_entity': {'value': ['foo', 'bar']},
         'auth_ref': 'test auth ref',
         'xsi:type': 'isam-v2:ISAMarkingsType'
     }

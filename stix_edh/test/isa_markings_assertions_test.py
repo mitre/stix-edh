@@ -35,7 +35,7 @@ class ISAMarkingsAssertionsTests(EntityTestCase, unittest.TestCase):
             cyber_profile_test.FurtherSharingTests._full_dict
         ],
         'resource_disposition': cyber_profile_test.ResourceDispositionTests._full_dict,
-        'control_set': [u'foo', u'bar'],
+        'control_set': {'value': [u'foo', u'bar']},
         'original_classification': cyber_profile_test.OriginalClassificationTests._full_dict,
         'default_marking': False,
         'most_restrictive': False,
