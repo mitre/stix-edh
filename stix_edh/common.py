@@ -68,3 +68,11 @@ class NMTokens(collections.MutableSequence, entities.Entity):
 
     def to_list(self):
         return [x for x in self]
+
+    def to_dict(self):
+        d = {}
+        for x in self:
+            if 'value' not in d:
+                d['value'] = []
+            d['value'].append(x)
+        return d
