@@ -61,10 +61,10 @@ class NMTokens(collections.MutableSequence, entities.Entity):
         return self.value.__len__()
 
     def __unicode__(self):
-        return text_type(utils.nmtokens_serialize(self.value))
+        return utils.nmtokens_serialize(self.value)
 
     def __str__(self):
-        return text_type(self).encode("utf-8")
+        return utils.nmtokens_serialize(self.value)
 
     def to_list(self):
         return [x for x in self]
