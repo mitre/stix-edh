@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.0.1 - 2019-01-14
+
+* #1 Apply mixbox entity changes to the NMTokens class
+
 1.0.0 - 2017-06-22
 
 * Initial release!
