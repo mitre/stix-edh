@@ -22,7 +22,18 @@ def _update_namespaces():
         mixbox.namespaces.register_namespace(ns)
 
 
+def _update_marking_fields():
+    # Update the stixmarx fields use to apply/resolve markings
+    try:
+        import stixmarx.fields as mfields
+        import stix_edh.fields as internal_fields
+        mfields.update_field_mappings(internal_fields.ISA_FIELDS)
+    except (ImportError, ImportWarning):
+        pass
+
+
 from .version import __version__  # noqa
 
 _register_stix_edh()
 _update_namespaces()
+_update_marking_fields()
