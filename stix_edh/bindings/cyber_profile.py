@@ -249,7 +249,7 @@ class OriginalClassificationType(PolicyRuleType):
         if self.classificationReason is not None:
             self.classificationReason.export(lwrite, level, nsmap, namespace_, name_='classificationReason', pretty_print=pretty_print)
         if self.compilationReason is not None:
-            self.classificationReason.export(lwrite, level, nsmap, namespace_, name_='compilationReason', pretty_print=pretty_print)
+            self.compilationReason.export(lwrite, level, nsmap, namespace_, name_='compilationReason', pretty_print=pretty_print)
     def build(self, node):
         self.__sourcenode__ = node
         already_processed = set()
