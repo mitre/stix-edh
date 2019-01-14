@@ -23,7 +23,7 @@ def _update_namespaces():
 
 
 def _update_marking_fields():
-    # Update the stixmarx fields use to apply/resolve markings
+    # Update the stixmarx fields to apply/resolve stix_edh objects
     try:
         import stixmarx.fields as mfields
         import stix_edh.fields as internal_fields
