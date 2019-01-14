@@ -23,7 +23,7 @@ class NMTokens(collections.MutableSequence, entities.Entity):
     _binding_class = _binding.NMTOKENS
     _namespace = 'http://www.w3.org/2001/XMLSchema'
 
-    value = fields.TypedField("ValueOf_", key_name="value")
+    value = fields.TypedField("valueOf_", key_name="value")
 
     def __init__(self, value=None):
         super(NMTokens, self).__init__()
