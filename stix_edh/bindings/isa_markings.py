@@ -5,13 +5,19 @@
 # Generated Mon Feb 23 13:51:21 2015 by generateDS.py version 2.9a.
 #
 
-# python-stix
+# external
 from mixbox.binding_utils import *
 from stix.bindings import register_extension
 from stix.bindings import data_marking as dm
 
+# internal
+from stix_edh.bindings import edh_common
 
 XML_NS = "http://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsType.v2.xsd"
+
+#
+# Data representation classes.
+#
 
 
 @register_extension
@@ -97,8 +103,7 @@ class ISAMarkingsType(dm.MarkingStructureType):
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:CreateDateTime>%s</%s:CreateDateTime>%s' % (nsmap[namespace_], quote_xml(self.CreateDateTime), nsmap[namespace_], eol_))
         if self.ResponsibleEntity is not None:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:ResponsibleEntity>%s</%s:ResponsibleEntity>%s' % (nsmap[namespace_], quote_xml(self.ResponsibleEntity), nsmap[namespace_], eol_))
+            self.ResponsibleEntity.export(lwrite, level, nsmap, namespace_, name_='ResponsibleEntity', pretty_print=pretty_print)
         if self.AuthRef is not None:
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:AuthRef>%s</%s:AuthRef>%s' % (nsmap[namespace_], quote_xml(self.AuthRef), nsmap[namespace_], eol_))
@@ -123,9 +128,10 @@ class ISAMarkingsType(dm.MarkingStructureType):
             CreateDateTime_ = self.gds_validate_string(CreateDateTime_, node, 'CreateDateTime')
             self.CreateDateTime = CreateDateTime_
         elif nodeName_ == 'ResponsibleEntity':
-            ResponsibleEntity_ = child_.text
-            ResponsibleEntity_ = self.gds_validate_string(ResponsibleEntity_, node, 'ResponsibleEntity')
-            self.ResponsibleEntity = ResponsibleEntity_
+            self.gds_validate_string(child_.text, node, 'ResponsibleEntity')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.ResponsibleEntity = obj_
         elif nodeName_ == 'AuthRef':
             self.set_AuthRef(child_.text)
         super(ISAMarkingsType, self).buildChildren(child_, node, nodeName_, True)

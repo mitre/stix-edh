@@ -15,9 +15,9 @@ class AccessPrivilegeTests(EntityTestCase, unittest.TestCase):
     klass = AccessPrivilege
 
     _full_dict = {
-        'privilege_action': ["privilege", "action"],
+        'privilege_action': "privilege",
         'privilege_scope': [
-            [u"privilege", u"scope"]
+            {'value': [u"privilege", u"scope"]},
         ],
         'rule_effect': 'permit'
     }
@@ -27,7 +27,7 @@ class FurtherSharingTests(EntityTestCase, unittest.TestCase):
     klass = FurtherSharing
 
     _full_dict = {
-        'sharing_scope': ["privilege", "action"],
+        'sharing_scope': "privilege",
         'rule_effect': 'permit'
     }
 
@@ -47,8 +47,8 @@ class OriginalClassificationTests(EntityTestCase, unittest.TestCase):
     _full_dict = {
         'classified_by': 'foobar',
         'classified_on': '2015-03-12',
-        'classification_reason': ['foo', 'bar'],
-        'compilation_reason': [u'test', u'TEST']
+        'classification_reason': {'value': ['foo', 'bar']},
+        'compilation_reason': {'value': [u'test', u'TEST']}
     }
 
 
@@ -58,7 +58,7 @@ class DerivativeClassificationTests(EntityTestCase, unittest.TestCase):
     _full_dict = {
         'classified_by': 'TEST',
         'classified_on': '2015-03-12',
-        'derived_from': [u'foo', u'bar']
+        'derived_from': {'value': [u'foo', u'bar']}
     }
 
 

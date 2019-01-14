@@ -5,16 +5,19 @@
 # Generated Mon Feb 23 13:51:45 2015 by generateDS.py version 2.9a.
 #
 
-# python-stix
+# external
+from mixbox.binding_utils import *
 from stix.bindings import register_extension
 from stix.bindings import data_marking as dm
-from mixbox.binding_utils import *
 
 # internal
-from stix_edh.bindings import cyber_profile
-
+from stix_edh.bindings import cyber_profile, edh_common
 
 XML_NS = "http://www.us-cert.gov/sites/default/files/STIX_Namespace/ISAMarkingsAssertionsType.v2.xsd"
+
+#
+# Data representation classes.
+#
 
 
 @register_extension
@@ -162,8 +165,7 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
         if self.ResourceDisposition is not None:
             self.ResourceDisposition.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='ResourceDisposition', pretty_print=pretty_print)
         if self.ControlSet is not None:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:ControlSet>%s</%s:ControlSet>%s' % (nsmap[cyber_profile.XML_NS], quote_xml(self.ControlSet), nsmap[cyber_profile.XML_NS], eol_))
+            self.ControlSet.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='ControlSet', pretty_print=pretty_print)
         if self.OriginalClassification is not None:
             self.OriginalClassification.export(lwrite, level, nsmap, cyber_profile.XML_NS, name_='OriginalClassification', pretty_print=pretty_print)
         if self.DerivativeClassification is not None:
@@ -223,7 +225,10 @@ class ISAMarkingsAssertionType(dm.MarkingStructureType):
             obj_.build(child_)
             self.set_ResourceDisposition(obj_)
         elif nodeName_ == 'ControlSet':
-            self.set_ControlSet(child_.text)
+            self.gds_validate_string(child_.text, node, 'ControlSet')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.ControlSet = obj_
         elif nodeName_ == 'OriginalClassification':
             obj_ = cyber_profile.OriginalClassificationType.factory()
             obj_.build(child_)
@@ -368,5 +373,6 @@ def parseString(inString):
     return rootObj
 
 __all__ = [
-    "ISAMarkingsAssertionType"
+    "ISAMarkingsAssertionType",
+    "AddlReferenceType"
 ]

@@ -42,12 +42,13 @@ XML_GLOBAL = """
                     <ns2:PolicyRef>Test policy ref</ns2:PolicyRef>
                     <ns2:AuthRef>Test auth ref</ns2:AuthRef>
                     <ns2:AccessPrivilege>
-                        <ns2:privilegeAction>privilege action</ns2:privilegeAction>
+                        <ns2:privilegeAction>privilege</ns2:privilegeAction>
                         <ns2:privilegeScope>privilege scope</ns2:privilegeScope>
+                        <ns2:privilegeScope>another privilege scope</ns2:privilegeScope>
                         <ns2:ruleEffect>permit</ns2:ruleEffect>
                     </ns2:AccessPrivilege>
                     <ns2:FurtherSharing>
-                        <ns2:sharingScope>privilege action</ns2:sharingScope>
+                        <ns2:sharingScope>privilege</ns2:sharingScope>
                         <ns2:ruleEffect>permit</ns2:ruleEffect>
                     </ns2:FurtherSharing>
                     <ns2:ResourceDisposition>

@@ -6,7 +6,14 @@
 # Generated Tue Mar 10 10:17:55 2015 by generateDS.py version 2.9a.
 #
 
+# stdlib
+import warnings as warnings_
+
+# external
 from mixbox.binding_utils import *
+
+# internal
+from stix_edh.bindings import edh_common
 
 XML_NS = "urn:edm:edh:cyber:v3"
 
@@ -19,7 +26,10 @@ class PolicyType(GeneratedsSuper):
     subclass = None
     superclass = None
     def __init__(self, PolicyRule=None):
-        self.PolicyRule = PolicyRule if PolicyRule is not None else []
+        if PolicyRule is None:
+            self.PolicyRule = []
+        else:
+            self.PolicyRule = PolicyRule
     def factory(*args_, **kwargs_):
         if PolicyType.subclass:
             return PolicyType.subclass(*args_, **kwargs_)
@@ -31,7 +41,7 @@ class PolicyType(GeneratedsSuper):
     def set_PolicyRule(self, PolicyRule): self.PolicyRule = PolicyRule
     def hasContent_(self):
         if (
-            self.PolicyRule is not None
+            self.PolicyRule
             ):
             return True
         else:
@@ -55,12 +65,8 @@ class PolicyType(GeneratedsSuper):
     def exportAttributes(self, lwrite, level, already_processed, namespace_='', name_='PolicyType'):
         pass
     def exportChildren(self, lwrite, level, nsmap, namespace_=XML_NS, name_='PolicyType', fromsubclass_=False, pretty_print=True):
-        if pretty_print:
-            eol_ = '\n'
-        else:
-            eol_ = ''
-        if self.PolicyRule is not None:
-            self.PolicyRule.export(lwrite, level, nsmap, namespace_, name_='PolicyRule', pretty_print=pretty_print)
+        for PolicyRule_ in self.PolicyRule:
+            PolicyRule_.export(lwrite, level, nsmap, namespace_, name_='PolicyRule', pretty_print=pretty_print)
     def build(self, node):
         self.__sourcenode__ = node
         already_processed = set()
@@ -241,11 +247,9 @@ class OriginalClassificationType(PolicyRuleType):
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:classifiedOn>%s</%s:classifiedOn>%s' % (nsmap[namespace_], quote_xml(self.classifiedOn), nsmap[namespace_], eol_))
         if self.classificationReason is not None:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:classificationReason>%s</%s:classificationReason>%s' % (nsmap[namespace_], quote_xml(self.classificationReason), nsmap[namespace_], eol_))
+            self.classificationReason.export(lwrite, level, nsmap, namespace_, name_='classificationReason', pretty_print=pretty_print)
         if self.compilationReason is not None:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:compilationReason>%s</%s:compilationReason>%s' % (nsmap[namespace_], quote_xml(self.compilationReason), nsmap[namespace_], eol_))
+            self.compilationReason.export(lwrite, level, nsmap, namespace_, name_='compilationReason', pretty_print=pretty_print)
     def build(self, node):
         self.__sourcenode__ = node
         already_processed = set()
@@ -265,9 +269,15 @@ class OriginalClassificationType(PolicyRuleType):
             dval_ = self.gds_parse_date(sval_, node, 'classifiedOn')
             self.classifiedOn = dval_
         elif nodeName_ == 'classificationReason':
-            self.set_classificationReason(child_.text)
+            self.gds_validate_string(child_.text, node, 'classificationReason')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.classificationReason = obj_
         elif nodeName_ == 'compilationReason':
-            self.set_compilationReason(child_.text)
+            self.gds_validate_string(child_.text, node, 'compilationReason')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.compilationReason = obj_
         super(OriginalClassificationType, self).buildChildren(child_, node, nodeName_, True)
 # end class OriginalClassificationType
 
@@ -333,8 +343,7 @@ class DerivativeClassificationType(PolicyRuleType):
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:classifiedOn>%s</%s:classifiedOn>%s' % (nsmap[namespace_], quote_xml(self.classifiedOn), nsmap[namespace_], eol_))
         if self.derivedFrom is not None:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:derivedFrom>%s</%s:derivedFrom>%s' % (nsmap[namespace_], quote_xml(self.derivedFrom), nsmap[namespace_], eol_))
+            self.derivedFrom.export(lwrite, level, nsmap, namespace_, name_='derivedFrom', pretty_print=pretty_print)
     def build(self, node):
         self.__sourcenode__ = node
         already_processed = set()
@@ -354,7 +363,10 @@ class DerivativeClassificationType(PolicyRuleType):
             dval_ = self.gds_parse_date(sval_, node, 'classifiedOn')
             self.classifiedOn = dval_
         elif nodeName_ == 'derivedFrom':
-            self.set_derivedFrom(child_.text)
+            self.gds_validate_string(child_.text, node, 'derivedFrom')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.derivedFrom = obj_
         super(DerivativeClassificationType, self).buildChildren(child_, node, nodeName_, True)
 # end class DerivativeClassificationType
 
@@ -646,7 +658,16 @@ class AccessPrivilegeType(PolicyRuleType):
     def set_ruleEffect(self, ruleEffect): self.ruleEffect = ruleEffect
     def validate_RuleEffectEnum(self, value):
         # Validate type RuleEffectEnum, a restriction on xsd:NMTOKEN.
-        pass
+        if value is not None:
+            value = str(value)
+            enumerations = ['permit', 'deny']
+            enumeration_respectee = False
+            for enum in enumerations:
+                if value == enum:
+                    enumeration_respectee = True
+                    break
+            if enumeration_respectee is False:
+                warnings_.warn('Value "%(value)s" does not match xsd enumeration restriction on RuleEffectEnum' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.privilegeAction is not None or
@@ -685,8 +706,7 @@ class AccessPrivilegeType(PolicyRuleType):
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:privilegeAction>%s</%s:privilegeAction>%s' % (nsmap[namespace_], quote_xml(self.privilegeAction), nsmap[namespace_], eol_))
         for privilegeScope_ in self.privilegeScope:
-            showIndent(lwrite, level, pretty_print)
-            lwrite('<%s:privilegeScope>%s</%s:privilegeScope>%s' % (nsmap[namespace_], quote_xml(privilegeScope_), nsmap[namespace_], eol_))
+            privilegeScope_.export(lwrite, level, nsmap, namespace_, name_='privilegeScope', pretty_print=pretty_print)
         if self.ruleEffect is not None:
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:ruleEffect>%s</%s:ruleEffect>%s' % (nsmap[namespace_], quote_xml(self.ruleEffect), nsmap[namespace_], eol_))
@@ -705,7 +725,10 @@ class AccessPrivilegeType(PolicyRuleType):
             privilegeAction_ = self.gds_validate_string(privilegeAction_, node, 'privilegeAction')
             self.privilegeAction = privilegeAction_
         elif nodeName_ == 'privilegeScope':
-            self.privilegeScope.append(child_.text)
+            self.gds_validate_string(child_.text, node, 'privilegeScope')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.privilegeScope.append(obj_)
         elif nodeName_ == 'ruleEffect':
             ruleEffect_ = child_.text
             ruleEffect_ = self.gds_validate_string(ruleEffect_, node, 'ruleEffect')
@@ -734,7 +757,16 @@ class FurtherSharingType(PolicyRuleType):
     def set_ruleEffect(self, ruleEffect): self.ruleEffect = ruleEffect
     def validate_RuleEffectEnum(self, value):
         # Validate type RuleEffectEnum, a restriction on xsd:NMTOKEN.
-        pass
+        if value is not None:
+            value = str(value)
+            enumerations = ['permit', 'deny']
+            enumeration_respectee = False
+            for enum in enumerations:
+                if value == enum:
+                    enumeration_respectee = True
+                    break
+            if enumeration_respectee is False:
+                warnings_.warn('Value "%(value)s" does not match xsd enumeration restriction on RuleEffectEnum' % {"value" : value.encode("utf-8")} )
     def hasContent_(self):
         if (
             self.sharingScope is not None or
@@ -846,6 +878,7 @@ __all__ = [
     "AccessPrivilegeType",
     "DeclassificationType",
     "DerivativeClassificationType",
+    "FurtherSharingType",
     "OriginalClassificationType",
     "PolicyRuleType",
     "PolicyType",
