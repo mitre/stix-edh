@@ -114,7 +114,7 @@ class FurtherSharing(stix.Entity):
     _ALLOWED_VALUES = ('permit', 'deny')
 
     rule_effect = fields.TypedField("ruleEffect", key_name="rule_effect", preset_hook=validate_enum_token)
-    sharing_scope = fields.TypedField("sharingScope", key_name="sharing_scope", preset_hook=validate_token)
+    sharing_scope = fields.TypedField("sharingScope", key_name="sharing_scope", type_="stix_edh.common.NMTokens", multiple=True)
 
     def __init__(self):
         super(FurtherSharing, self).__init__()
