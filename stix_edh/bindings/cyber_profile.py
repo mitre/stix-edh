@@ -827,9 +827,6 @@ class FurtherSharingType(PolicyRuleType):
             obj_ = edh_common.NMTOKENS.factory()
             obj_.build(child_)
             self.sharingScope.append(obj_)
-            # sharingScope_ = child_.text
-            # sharingScope_ = self.gds_validate_string(sharingScope_, node, 'sharingScope')
-            # self.sharingScope.append(sharingScope_)
         elif nodeName_ == 'ruleEffect':
             ruleEffect_ = child_.text
             ruleEffect_ = self.gds_validate_string(ruleEffect_, node, 'ruleEffect')
