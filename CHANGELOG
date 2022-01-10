@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.0.2 - 2022-01-10
+
+* Correct XSD and related python code to handle multiple values for sharing_scope of Further Sharing
+
 1.0.1 - 2019-01-14
 
 * #1 Apply mixbox entity changes to the NMTokens class
