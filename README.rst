@@ -58,7 +58,7 @@ repository for more information.
 Requirements
 ------------
 
-* Python 2.6, 2.7, or 3.3+
+* Python 2.7, or 3.5+
 * python-stix
 
   * for STIX 1.1.1:  >= 1.1.1.8 and < 1.2.0.0

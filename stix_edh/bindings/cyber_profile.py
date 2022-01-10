@@ -5,6 +5,8 @@
 #
 # Generated Tue Mar 10 10:17:55 2015 by generateDS.py version 2.9a.
 #
+# Generated Thu Jan  6 18:24:41 2022 by generateDS.py version 2.9a.
+#
 
 # stdlib
 import warnings as warnings_
@@ -743,7 +745,10 @@ class FurtherSharingType(PolicyRuleType):
     superclass = PolicyRuleType
     def __init__(self, sharingScope=None, ruleEffect=None):
         super(FurtherSharingType, self).__init__()
-        self.sharingScope = sharingScope
+        if sharingScope is None:
+            self.sharingScope = []
+        else:
+            self.sharingScope = sharingScope
         self.ruleEffect = ruleEffect
     def factory(*args_, **kwargs_):
         if FurtherSharingType.subclass:
@@ -753,6 +758,8 @@ class FurtherSharingType(PolicyRuleType):
     factory = staticmethod(factory)
     def get_sharingScope(self): return self.sharingScope
     def set_sharingScope(self, sharingScope): self.sharingScope = sharingScope
+    def add_sharingScope(self, value): self.sharingScope.append(value)
+    def insert_sharingScope(self, index, value): self.sharingScope[index] = value
     def get_ruleEffect(self): return self.ruleEffect
     def set_ruleEffect(self, ruleEffect): self.ruleEffect = ruleEffect
     def validate_RuleEffectEnum(self, value):
@@ -800,7 +807,7 @@ class FurtherSharingType(PolicyRuleType):
             eol_ = '\n'
         else:
             eol_ = ''
-        if self.sharingScope is not None:
+        for sharingScope_ in self.sharingScope:
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:sharingScope>%s</%s:sharingScope>%s' % (nsmap[namespace_], quote_xml(self.sharingScope), nsmap[namespace_], eol_))
         if self.ruleEffect is not None:
@@ -817,9 +824,10 @@ class FurtherSharingType(PolicyRuleType):
         super(FurtherSharingType, self).buildAttributes(node, attrs, already_processed)
     def buildChildren(self, child_, node, nodeName_, fromsubclass_=False):
         if nodeName_ == 'sharingScope':
-            sharingScope_ = child_.text
-            sharingScope_ = self.gds_validate_string(sharingScope_, node, 'sharingScope')
-            self.sharingScope = sharingScope_
+            self.gds_validate_string(child_.text, node, 'sharingScope')
+            obj_ = edh_common.NMTOKENS.factory()
+            obj_.build(child_)
+            self.sharingScope.append(obj_)
         elif nodeName_ == 'ruleEffect':
             ruleEffect_ = child_.text
             ruleEffect_ = self.gds_validate_string(ruleEffect_, node, 'ruleEffect')

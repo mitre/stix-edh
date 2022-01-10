@@ -115,7 +115,7 @@ elementFormDefault="qualified" attributeFormDefault="unqualified" version="3" xm
      <xsd:complexContent>
        <xsd:extension base="PolicyRuleType">
           <xsd:sequence>
-           <xsd:element name="sharingScope" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="1"/>
+           <xsd:element name="sharingScope" type="xsd:NMTOKEN" minOccurs="1" maxOccurs="unbounded"/>
            <xsd:element name="ruleEffect" type="RuleEffectEnum" minOccurs="1" maxOccurs="1"/>
           </xsd:sequence>
         </xsd:extension>
