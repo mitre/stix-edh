@@ -27,7 +27,7 @@ class FurtherSharingTests(EntityTestCase, unittest.TestCase):
     klass = FurtherSharing
 
     _full_dict = {
-        'sharing_scope': "privilege",
+        'sharing_scope': [ {'value': [ u"privilege" ]}],
         'rule_effect': 'permit'
     }
 

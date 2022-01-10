@@ -279,7 +279,7 @@ class OriginalClassificationType(PolicyRuleType):
             self.gds_validate_string(child_.text, node, 'compilationReason')
             obj_ = edh_common.NMTOKENS.factory()
             obj_.build(child_)
-            self.set_compilationReason(obj_)
+            self.compilationReason = obj_
         super(OriginalClassificationType, self).buildChildren(child_, node, nodeName_, True)
 # end class OriginalClassificationType
 
@@ -444,6 +444,7 @@ class DeclassificationType(PolicyRuleType):
             showIndent(lwrite, level, pretty_print)
             lwrite('<%s:declassEvent>%s</%s:declassEvent>%s' % (nsmap[namespace_], quote_xml(self.declassEvent), nsmap[namespace_], eol_))
     def build(self, node):
+        self.__sourcenode__ = node
         already_processed = set()
         self.buildAttributes(node, node.attrib, already_processed)
         for child in node:
@@ -891,4 +892,4 @@ __all__ = [
     "PolicyType",
     "PublicReleaseType",
     "ResourceDispositionType"
-    ]
+]
