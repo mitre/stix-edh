@@ -14,7 +14,7 @@ from stix_edh import utils
 from stix_edh.bindings import edh_common
 
 
-class NMTokens(collections.MutableSequence, entities.Entity):
+class NMTokens(collections.abc.MutableSequence, entities.Entity):
     """Takes an xs:NMTOKENS string (a whitespace separated string of tokens)
     and converts it into a mutable sequence type.
 
