@@ -1,7 +1,7 @@
 stix-edh
 ========
 
-|Version|
+|Build_Status| |Version|
 
 An extension to python-stix supporting STIX Data Markings for the `Enhance
 Shared Situational Awareness (ESSA) <https://www.us-cert.gov/essa>`_
@@ -75,5 +75,7 @@ Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007).
 
 Copyright (c) 2017, The MITRE Corporation. All Rights Reserved.
 
+.. |Build_Status| image:: https://github.com/mitre/stix-edh/workflows/stix-edh%20test%20harness/badge.svg
+   :target: https://github.com/mitre/stix-edh/actions?query=workflow%3A%22stix-edh+test+harness%22
 .. |Version| image:: https://img.shields.io/pypi/v/stix-edh.svg?maxAge=3600
    :target: https://pypi.python.org/pypi/stix-edh/
