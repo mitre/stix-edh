@@ -58,13 +58,13 @@ repository for more information.
 Requirements
 ------------
 
-* Python 2.7, or 3.5+
+* Python 3.7+
 * python-stix
 
   * for STIX 1.1.1:  >= 1.1.1.8 and < 1.2.0.0
   * for STIX 1.2:  >= 1.2.0.3
 
-* mixbox > 1.0.1
+* mixbox > 1.0.5
 
 
 Notice
@@ -75,7 +75,7 @@ Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007).
 
 Copyright (c) 2017, The MITRE Corporation. All Rights Reserved.
 
-.. |Build_Status| image:: https://travis-ci.org/mitre/stix-edh.svg?branch=master
-   :target: https://travis-ci.org/mitre/stix-edh
+.. |Build_Status| image:: https://github.com/mitre/stix-edh/workflows/stix-edh%20test%20harness/badge.svg
+   :target: https://github.com/mitre/stix-edh/actions?query=workflow%3A%22stix-edh+test+harness%22
 .. |Version| image:: https://img.shields.io/pypi/v/stix-edh.svg?maxAge=3600
    :target: https://pypi.python.org/pypi/stix-edh/
