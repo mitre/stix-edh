@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+1.0.3 - 2022-08-10
+
+* Updates for 3.10, remove versions before 3.7 from testing
+
 1.0.2 - 2022-01-10
 
 * Correct XSD and related python code to handle multiple values for sharing_scope of Further Sharing
